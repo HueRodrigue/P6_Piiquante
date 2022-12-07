@@ -24,7 +24,8 @@ Avec un terminal, aller dans le dossier "frontend" puis:
 #### Partie backend
 
 Avec un terminal, aller dans le dossier backend, puis:
-            -taper: "nodemon server",
-            -le serveur écoute sur le port: http://localhost:3000
+
+        -taper: "nodemon server",
+        -le serveur écoute sur le port: http://localhost:3000
 
 **Arrivé à ce point, vous pouvez utiliser les fonctionnalités du site.**
