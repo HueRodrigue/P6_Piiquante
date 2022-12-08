@@ -13,7 +13,6 @@ Le site **Piiquante** est un site d'avis culinaires où les utilisateurs peuvent
     - liker ou disliker les sauces enregistrées sur le site.
 
 ### Sécurité mise en place
-## Mesures de sécurité mises en place
 
     - Hashage du mot de passe utilisateur avec BCRYPT
     - Cryptage des emails utilisateurs dans la base de données avec CRYPTO-JS
