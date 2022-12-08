@@ -1,4 +1,5 @@
 // Imporation d'express
+// Express permet de gérer les différente routes de l'API
 const express = require('express');
 const router = express.Router();
 

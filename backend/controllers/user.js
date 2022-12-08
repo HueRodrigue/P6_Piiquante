@@ -1,7 +1,12 @@
 // Importation de bcrypt,jwt et du model utilisateur
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const User = require('../models/user')
+const User = require('../models/user');
+// Importation de cryptojs premettant le cryptage des emails utilisateurs dans la base de données 
+const cryptojs = require('crypto-js');
+
+// Importation des variables d'environnements
+require('dotenv').config();
 
 // Enregistrement d'un nouvel utilisateur
 exports.signup = (req, res, next) => {
@@ -10,7 +15,8 @@ exports.signup = (req, res, next) => {
       .then(hash => {
         // Reconstruction de l'objet utilisateur avec le mdp hashé
         const user = new User({
-          email: req.body.email,
+        // cryptage de l'email, méthode 'HmacSHA256' SANS salage (pour pouvoir ensuite rechercher l'utilisateur simplement lors du login)
+          email: cryptojs.HmacSHA256(req.body.email, process.env.EMAIL_KEY).toString(), 
           password: hash
         });
         // Sauvegarde de l'utilisateur dans la DB
@@ -27,7 +33,8 @@ exports.signup = (req, res, next) => {
   // login de l'utilisateur
   exports.login = (req, res, next) => {
     // On regarde si l'utilisateur est dans le DB
-    User.findOne({ email: req.body.email })
+    const cryptedResearchedEmail = cryptojs.HmacSHA256(req.body.email, process.env.EMAIL_KEY).toString();
+    User.findOne( { email: cryptedResearchedEmail })
         .then(user => {
             // Vérification su l'utilisateur est dans la DB
             if (!user) {
@@ -48,7 +55,7 @@ exports.signup = (req, res, next) => {
                         userId: user._id,
                         token: jwt.sign(
                             { userId: user._id },
-                            'RANDOM_TOKEN_SECRET',
+                            TOKEN_KEY,
                             { expiresIn: '24h' }
                         )
                     });
@@ -59,3 +66,4 @@ exports.signup = (req, res, next) => {
         // 500 ==>Erreur coté serveur
         .catch(error => res.status(500).json({ error }));
  };
+
