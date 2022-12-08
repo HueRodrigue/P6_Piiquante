@@ -15,13 +15,13 @@ Le site **Piiquante** est un site d'avis culinaires où les utilisateurs peuvent
 ### Sécurité mise en place
 ## Mesures de sécurité mises en place
 
-    - Hashage du mot de passe utilisateur avec **bcrypt**
-    - Cryptage des emails utilisateurs dans la base de données avec **crypto-js**
-    - Manupulation sécurisée de la base de donnée avec **mongoose**
-    - Vérification que l'email utilisateur soit unique dans la base de données avec **mongoose-unique-validator**
-    - Utilisation de variables d'environnement pour les données sensibles avec **dotenv**
-    - Authentification de l'utilisateur par token avec **jsonwebtoken**
-    - Protection des headers avec **helmet**
+    - Hashage du mot de passe utilisateur avec BCRYPT
+    - Cryptage des emails utilisateurs dans la base de données avec CRYPTO-JS
+    - Manupulation sécurisée de la base de donnée avec MONGOOSE
+    - Vérification que l'email utilisateur soit unique dans la base de données avec MONGOOSE-UNIQUE-VALIDATOR
+    - Utilisation de variables d'environnement pour les données sensibles avec DOTENV
+    - Authentification de l'utilisateur par token avec JSONWEBTOKEN
+    - Protection des headers avec HELMET
 
 ### Instructions pour le lancement: partie Frontend et partie Backend
 
