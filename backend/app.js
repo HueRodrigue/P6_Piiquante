@@ -33,8 +33,7 @@ app.use((req, res, next) => {
     next();
   });
 
-  // Utilisation du package helmet
-app.use(helmet());
+
 
 
 //Utilisation des routes par l'api
