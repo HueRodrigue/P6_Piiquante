@@ -33,8 +33,10 @@ Avec un terminal, aller dans le dossier "frontend" puis:
 
 #### Partie backend
 
-Avec un terminal, aller dans le dossier backend, puis:
+Avec un terminal, aller dans le dossier backend, puis
 
+        -se rendre dans le fichier .env
+        -renseigner le lien de votre BDD Mongo
         -taper: "nodemon server",
         -le serveur écoute sur le port: http://localhost:3000
 
