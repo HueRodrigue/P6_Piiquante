@@ -1,4 +1,6 @@
 const multer = require('multer');
+const alert = require('alert');
+
 // Tableau des extension d'image accepté
 const MIME_TYPES = {
   'image/jpg': 'jpg',
@@ -8,7 +10,7 @@ const MIME_TYPES = {
 // Création du stockage avec multer
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
-    // La destinatyion du stockage est le dossier images
+    // La destination du stockage est le dossier images
     callback(null, 'images');
   },
   // filename ==> nom du fichier originel
@@ -23,5 +25,17 @@ const storage = multer.diskStorage({
   }
 });
 
+/* defined filter */
+const fileFilter = (req, file, callback,res) => {
+  if (file.mimetype in MIME_TYPES) {
+    callback(null, true);
+  } else {
+    callback(new Error("File format should be PNG,JPG,JPEG"), false); // if validation failed then generate error
+    alert("Le format de l'image doit être en PNG,JPG ou JPEG")
+    
+    
+  }
+};
+
 // exportation du module et traitement uniquement des images
-module.exports = multer({storage: storage}).single('image');
+module.exports = multer({storage: storage, fileFilter :fileFilter}).single('image');

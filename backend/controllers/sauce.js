@@ -15,7 +15,9 @@ exports.createSauce = (req, res, next) => {
         // Récupération de l'userId via l'authentification
         userId: req.auth.userId,
         // Création de l'url de stockage de l'image de la sauce 
-        imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
+        imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
+        likes: 0,
+        dislikes: 0,
     });
     // Sauvegarde de la sauce dans la BDD
     sauce.save()
