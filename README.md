@@ -31,6 +31,12 @@ Avec un terminal, aller dans le dossier "frontend" puis:
     - taper: "npm run start",
     - enfin: dans votre navigateur se rendre à l'adresse: http://localhost:4200 
 
+
+#### Partie .env
+
+Par soucis de sécurité le fichier .env, n'est pas enregistré.
+Pour l'exemple un fichier .env est présent sous le nom de ".env.exemple"
+Pour l'utilisé tel quel, veuillez le renommé ".env"
 #### Partie backend
 
 Avec un terminal, aller dans le dossier backend, puis
