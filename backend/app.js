@@ -1,4 +1,4 @@
-//Importatio d'express et mongoose
+//Importation d'express et mongoose
 // Express permet de gérer les différente routes de l'API
 const express = require('express');
 const app = express();
@@ -18,6 +18,7 @@ require('dotenv').config();
 app.use(express.json());
 
 
+
 //Connection a la base MongoDB
 mongoose.connect(process.env.MONGODB_PATH,
   { useNewUrlParser: true,
@@ -25,6 +26,8 @@ mongoose.connect(process.env.MONGODB_PATH,
   .then(() => console.log('Connexion à MongoDB réussie !'))
   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
+
+  
 //En-tête de requête specifique afin de résoudre le problème de CORS (requête n'ayant pas la même origine)
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', process.env.AUTHORIZED_ORIGIN);
@@ -33,8 +36,8 @@ app.use((req, res, next) => {
     next();
   });
 
-
-
+  
+  
 
 //Utilisation des routes par l'api
 app.use('/api/sauces', sauceRoute);
