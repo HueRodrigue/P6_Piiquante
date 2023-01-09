@@ -38,6 +38,7 @@ Par soucis de sécurité le fichier .env, n'est pas enregistré.
 Pour l'exemple un fichier .env est présent sous le nom de ".env.exemple"
 Pour l'utilisé tel quel, veuillez le renommé ".env"
 #### Partie backend
+Créer le dossier images à la racine du backend
 
 Avec un terminal, aller dans le dossier backend, puis
 
